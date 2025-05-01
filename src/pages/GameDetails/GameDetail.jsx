@@ -1,0 +1,89 @@
+import React, { useState } from "react";
+import { useEffect } from "react";
+import { useDispatch, useSelector } from "react-redux";
+import { useParams } from "react-router-dom";
+import { CategoriesGamesDetails } from "../../Data/api/categorygamesApi";
+
+const GameDetail = () => {
+  const { id } = useParams();
+  const dispatch = useDispatch();
+
+  const [showModal,  setShowModal] = useState(false)
+
+  useEffect(() => {
+    console.log("hello Game Detail's Page");
+    dispatch(CategoriesGamesDetails(id));
+  }, [dispatch, id]);
+
+  const categoryGamesDetail = useSelector(
+    (state) => state.categoryGamesDetails.categoryGamesDetail
+  );
+  console.log(categoryGamesDetail);
+
+  
+
+  return (
+    <div className="min-h-screen p-1" style={{backgroundColor: ""}} >
+      {/* <h1>GameDetail</h1> */}
+      {categoryGamesDetail ? (
+        <div className="border-1 shadow-black shadow-lg mx-4 mt-8 text-center pb-8 rounded-xl">
+          {categoryGamesDetail.userGameServiceImages?.[0]?.path ? (
+            <img
+              src={categoryGamesDetail.userGameServiceImages[0]?.path}
+              alt="Game Image"
+              className="w-full h-48 object-cover  rounded-t-xl"
+              onClick={()=> setShowModal(true)}
+            />
+          ) : (
+            <p className="text-2xl">No image available</p>
+          )}
+          <h2 className="text-2xl text-green-400 font-bold">{categoryGamesDetail.title}</h2>
+          <p className="text-lg">{categoryGamesDetail.game?.name}</p>
+          {/* You can add more details like description here */}
+
+          <p className="">{categoryGamesDetail.description}</p>
+          <div className="text-start">
+          <label className="text-green-600 text-2xl font-semibold px-2 "> Disclaimer </label>
+          <div className="space-y-2 mt-2 px-2">
+            {categoryGamesDetail.category?.disclaimer
+             .replace(/[0-9]+\./g, '')
+             .split('\r\n') 
+              .filter((point) => point.trim() !== "")
+              .map((point, index) => (
+                <p key={index} className="text-gray-700">
+                  {index + 1}. {point.trim()}.
+                </p>
+              ))}
+          </div>  
+          </div>
+          {/* <p>{categoryGamesDetail.}</p> */}
+
+        </div>
+      ) : (
+        <p className="text-gray-300">No Data Available</p>
+      )}
+
+
+{showModal && (
+  <div className="fixed inset-0 bg-black bg-opacity-70 flex items-center justify-center z-50">
+    <button
+        onClick={() => setShowModal(false)}
+        className="absolute top-2 right-2 text-gray-600 text-4xl font-bold"
+      >
+        &times;
+      </button>
+    <div className="bg-white rounded-lg shadow-lg max-w-xl w-full relative">
+      
+      <img
+        src={categoryGamesDetail.userGameServiceImages[0]?.path}
+        alt="Game image"
+        className="w-full max-h-[80vh] object-contain rounded-lg"
+      />
+    </div>
+  </div>
+)}
+    </div>
+  );
+};
+
+export default GameDetail;
