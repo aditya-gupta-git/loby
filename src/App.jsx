@@ -33,7 +33,7 @@ const App = () => {
           <Route path='/top-category/:gameId/listing/:id' element={<TopCategoriesListing />} />
           <Route path='/profile' element={<Profile />} /> 
           <Route path='/wallet' element={<Wallet /> } />   
-          <Route path='/listings' element={<Mylisting />} />  
+          {/* <Route path='/listings' element={<Mylisting />} />    */}
           <Route path='/faqs' element={<Faq />} />
 
           <Route path='/search' element={<Search/>} />
