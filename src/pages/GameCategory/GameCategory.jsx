@@ -1,6 +1,6 @@
 import React, { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { CategoryGames } from "../../data/api/categorygamesApi";
+import { CategoryGames } from "../../Data/api/categorygamesApi";
 import { Link, useNavigate, useParams } from "react-router-dom";
 import Loader from "../../components/Ui/Loader";
 

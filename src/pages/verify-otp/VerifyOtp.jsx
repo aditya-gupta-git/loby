@@ -1,8 +1,8 @@
 import React, { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
-import { verifyotp } from "../../data/api/authApi.js";
-import { loginFailure, loginStart, loginSuccess } from "../../data/redux/slices/authSlice.js";
+import { verifyotp } from "../../Data/api/authApi.js";
+import { loginFailure, loginStart, loginSuccess } from "../../Data/redux/slices/authSlice.js";
 import { images } from "../../constant/images";
 
 const VerifyOtp = () => {

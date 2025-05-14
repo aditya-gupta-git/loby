@@ -3,7 +3,7 @@ import { images } from "../../constant/images";
 import { useNavigate, useParams } from "react-router-dom";
 import Loader from "../../components/Ui/Loader";
 import { useDispatch, useSelector } from "react-redux";
-import { GetTopCategories } from "../../data/api/topCategoriesApi";
+import { GetTopCategories } from "../../Data/api/topCategoriesApi";
 
 const TopCategories = () => {
   const navigate = useNavigate();
