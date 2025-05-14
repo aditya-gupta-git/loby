@@ -12,7 +12,7 @@ import TopCategoriesDetail from './pages/TopCategoriesDetails/TopCategoriesDetai
 import TopCategoriesListing from './pages/TopCategoriesListing/TopCategoriesListing.jsx'
 import Profile from './pages/profile/Profile.jsx'
 import Wallet from './pages/wallet/Wallet.jsx'
-import Mylisting from './pages/mylisting/myListing'
+// import Mylisting from './pages/mylisting/myListing' 
 import Faq from './pages/Faq/Faq.jsx'
 
 
