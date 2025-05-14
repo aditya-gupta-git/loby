@@ -1,1 +1,9 @@
+html, body {
+    background-color: #1F2128;
+    margin: 0;
+    padding: 0;
+    height: 100%;
+    width: 100%;
+  }
+
 @import "tailwindcss";

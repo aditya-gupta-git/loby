@@ -11,9 +11,9 @@ export const sendotp = async (mobile) => {
 
 
 // Verify Api
-export const verifyotp = async (mobile, otp)=>{
+export const verifyotp = async (otp, mobile)=>{
     try {
-        const response =  await axiosInstance.post('/verify-otp', {mobile,otp} )
+        const response =  await axiosInstance.post('/verify-otp', {mobile, otp} )
         console.log(response.data)
         return response.data
         
