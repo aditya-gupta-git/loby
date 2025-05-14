@@ -12,7 +12,7 @@ import TopCategoriesDetail from './pages/TopCategoriesDetails/TopCategoriesDetai
 import TopCategoriesListing from './pages/TopCategoriesListing/TopCategoriesListing'
 import Profile from './pages/profile/Profile'
 import Wallet from './pages/wallet/Wallet'
-import Mylisting from './pages/mylisting/myListing'
+// import Mylisting from './pages/mylisting/myListing'
 
 
 
@@ -32,7 +32,7 @@ const App = () => {
           <Route path='/top-category/:gameId/listing/:id' element={<TopCategoriesListing />} />
           <Route path='/profile' element={<Profile />} /> 
           <Route path='/wallet' element={<Wallet /> } />   
-          <Route path='/listings' element={<Mylisting />} /> 
+          {/* <Route path='/listings' element={<Mylisting />} />  */}
 
           <Route path='/search' element={<Search/>} />
         </Routes>
