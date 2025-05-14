@@ -1,6 +1,6 @@
 import React, { useEffect } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
-import { GetTopCategoryList } from '../../Data/api/topCategoriesDetailApi'
+import { GetTopCategoryList } from '../../data/api/topCategoriesDetailApi'
 import { useNavigate, useParams } from 'react-router-dom'
 import { images } from '../../constant/images'
 

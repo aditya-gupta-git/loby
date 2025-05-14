@@ -1,13 +1,13 @@
 import React, { useEffect } from "react";
-import { GetAllCategories } from "../../Data/api/categoryApi";
+import { GetAllCategories } from "../../data/api/categoryApi";
 import { useDispatch, useSelector } from "react-redux";
-import { GetAllGames } from "../../Data/api/gamesApi";
+import { GetAllGames } from "../../data/api/gamesApi";
 import { useNavigate } from "react-router-dom";
 import Navbar from "../../components/Header/Header";
 import Loader from "../../components/Ui/Loader";
 import { images } from "../../constant/images";
 import { CiSearch } from "react-icons/ci";
-import { GetBannerImage } from "../../Data/api/sliderBannerApi";
+import { GetBannerImage } from "../../data/api/sliderBannerApi";
 import Carousel from "../../components/Ui/Carousel";
 import Slider from "react-slick";
 import "slick-carousel/slick/slick.css";

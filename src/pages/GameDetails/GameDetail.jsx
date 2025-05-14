@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { useParams } from "react-router-dom";
-import { CategoriesGamesDetails } from "../../Data/api/categorygamesApi";
+import { CategoriesGamesDetails } from "../../data/api/categorygamesApi";
 import Loader from "../../components/Ui/Loader";
 
 const GameDetail = () => {

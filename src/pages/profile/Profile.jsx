@@ -1,5 +1,5 @@
 import React, { useEffect } from 'react'
-import { GetProfileData } from '../../Data/api/profileApi'
+import { GetProfileData } from '../../data/api/profileApi'
 import { useDispatch, useSelector } from 'react-redux'
 import { useNavigate } from 'react-router-dom'
 

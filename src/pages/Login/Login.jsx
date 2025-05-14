@@ -3,9 +3,9 @@ import {
   loginStart,
   loginSuccess,
   loginFailure,
-} from "../../Data/redux/slices/authSlice";
+} from "../../data/redux/slices/authSlice.js";
 import { useDispatch, useSelector } from "react-redux";
-import { sendotp } from "../../Data/api/authApi.js";
+import { sendotp } from "../../data/api/authApi.js";
 import { useNavigate } from "react-router-dom";
 import { images } from "../../constant/images";
 

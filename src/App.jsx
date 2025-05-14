@@ -12,7 +12,8 @@ import TopCategoriesDetail from './pages/TopCategoriesDetails/TopCategoriesDetai
 import TopCategoriesListing from './pages/TopCategoriesListing/TopCategoriesListing.jsx'
 import Profile from './pages/profile/Profile.jsx'
 import Wallet from './pages/wallet/Wallet.jsx'
-// import Mylisting from './pages/mylisting/myListing'
+import Mylisting from './pages/mylisting/myListing'
+import Faq from './pages/Faq/Faq.jsx'
 
 
 
@@ -32,7 +33,8 @@ const App = () => {
           <Route path='/top-category/:gameId/listing/:id' element={<TopCategoriesListing />} />
           <Route path='/profile' element={<Profile />} /> 
           <Route path='/wallet' element={<Wallet /> } />   
-          {/* <Route path='/listings' element={<Mylisting />} />  */}
+          <Route path='/listings' element={<Mylisting />} />  
+          <Route path='/faqs' element={<Faq />} />
 
           <Route path='/search' element={<Search/>} />
         </Routes>

@@ -2,7 +2,7 @@ import React, { useEffect } from 'react'
 import { images } from '../../constant/images'
 import { useNavigate } from 'react-router-dom'
 import { useDispatch, useSelector } from 'react-redux'
-import { GetWallet } from '../../Data/api/profileApi'
+import { GetWallet } from '../../data/api/profileApi'
 
 
 const Wallet = () => {

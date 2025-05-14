@@ -1,10 +1,10 @@
 import React, { useEffect, useState } from "react";
 import { images } from "../../constant/images";
 import { useNavigate, useParams } from "react-router-dom";
-import { GetTopCategoryDetail } from "../../Data/api/topCategoriesDetailApi";
-import { GetAllCategories } from "../../Data/api/categoryApi";
+import { GetTopCategoryDetail } from "../../data/api/topCategoriesDetailApi";
+import { GetAllCategories } from "../../data/api/categoryApi";
 import { useDispatch, useSelector } from "react-redux";
-import { setActiveCategoryId } from "../../Data/redux/slices/TopCategoriesDetailSlice";
+import { setActiveCategoryId } from "../../data/redux/slices/TopCategoriesDetailSlice";
 import Loader from "../../components/Ui/Loader";
 
 const TopCategoriesDetail = () => {
