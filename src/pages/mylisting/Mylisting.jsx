@@ -4,7 +4,7 @@ import { useNavigate } from "react-router-dom";
 import { MyListing } from "../../Data/api/profileApi";
 import { useDispatch, useSelector } from "react-redux";
 
-export const Mylisting = () => {
+const Mylisting = () => {
   const navigate = useNavigate();
   const dispatch = useDispatch();
 
@@ -121,4 +121,4 @@ export const Mylisting = () => {
   );
 };
 
-
+export default Mylisting;

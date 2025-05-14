@@ -12,7 +12,7 @@ import TopCategoriesDetail from './pages/TopCategoriesDetails/TopCategoriesDetai
 import TopCategoriesListing from './pages/TopCategoriesListing/TopCategoriesListing'
 import Profile from './pages/profile/Profile'
 import Wallet from './pages/wallet/Wallet'
-import Mylisting from './pages/mylisting/MyListing'
+import Mylisting from './pages/mylisting/myListing'
 
 
 
