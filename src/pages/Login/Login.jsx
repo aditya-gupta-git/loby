@@ -5,7 +5,7 @@ import {
   loginFailure,
 } from "../../Data/redux/slices/authSlice";
 import { useDispatch, useSelector } from "react-redux";
-import { sendotp } from "../../Data/api/authApi";
+import { sendotp } from "../../Data/api/authApi.js";
 import { useNavigate } from "react-router-dom";
 import { images } from "../../constant/images";
 

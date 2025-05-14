@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
-import { verifyotp } from "../../Data/api/authApi";
+import { verifyotp } from "../../Data/api/authApi.js";
 import { loginFailure, loginStart, loginSuccess } from "../../Data/redux/slices/authSlice";
 import { images } from "../../constant/images";
 
