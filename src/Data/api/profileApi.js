@@ -1,4 +1,4 @@
-import { fetchListingSuccess, fetchProfileFailed, fetchProfileStart, fetchProfileSuccess, fetchWalletSuccess } from "../redux/slices/profileSlice";
+import { fetchFaqSuccess, fetchListingSuccess, fetchProfileFailed, fetchProfileStart, fetchProfileSuccess, fetchProfileUser, fetchWalletSuccess } from "../redux/slices/profileSlice";
 import axiosInstance from "./axiosInstance";
 
 export const GetProfileData = ()=> async (dispatch)=>{
@@ -54,4 +54,43 @@ export const MyListing = ()=> async (dispatch)=> {
         
         
      }
+}
+
+export const GetFaq = ()=> async (dispatch)=> {
+
+    dispatch(fetchProfileStart())
+
+    try {
+        const response = await axiosInstance.get('get-static-faqs')
+        console.log(response)
+        dispatch(fetchFaqSuccess(response.data))
+
+        
+    } catch (error) {
+        console.log(error)
+        dispatch(fetchProfileFailed("Error :", error))
+        
+        
+    }
+}
+
+
+export const GetprofileUser = ()=> async (dispatch)=> {
+
+    dispatch(fetchProfileStart())
+
+    try {
+        const response = await axiosInstance.get('get-all-game-service-listing?page=1&user_id=33')
+        console.log(response)
+        dispatch(fetchProfileUser(response.data.data))
+
+        
+
+    } catch (error) {
+        console.log(error)
+        dispatch(fetchProfileFailed("Error :", error))
+        
+        
+    }
+
 }

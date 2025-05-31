@@ -16,7 +16,7 @@ const TopCategoriesDetail = () => {
 
   useEffect(() => {
     if(gameId && categoryId ){
-        dispatch(GetTopCategoryDetail({gameId, categoryId}));
+        dispatch(GetTopCategoryDetail({gameId, categoryId})); 
         
     }
     dispatch(GetAllCategories())   
@@ -46,7 +46,7 @@ const TopCategoriesDetail = () => {
 
   function Addbtn(id) {
     console.log("Id :", id);
-    dispatch(setActiveCategoryId(id))
+    dispatch(setActiveCategoryId(id)) 
     navigate(`/top-category/${gameId}/detail/${id}`)
   }
 
@@ -56,9 +56,33 @@ const TopCategoriesDetail = () => {
     navigate(`/top-category/${gameId}/listing/${id}`)
   }
 
+// const [ image, setImage] = useState(null)
+
+//   function handleChange(e){
+//     const file = e.target.files[0]
+//     if(file) {
+//       setImage(URL.createObjectURL(file))
+
+//     }
+
+//   }
+ 
+
   return (
     <div>
       <div>
+{/* 
+      <div>
+        <img src={image || '/default.profile'} alt="" 
+        style={{width: '150px', height: '150px', borderRadius: '50%'}} 
+        />
+
+       
+          <input type="file" capture="environment" onCh0ange={handleChange} />
+        
+
+        </div> */}
+     
         <nav className="flex items-center justify-between px-4 py-4 ">
           <div
             className="left-icon text-white text-2xl p-2 rounded-full "
@@ -80,14 +104,12 @@ const TopCategoriesDetail = () => {
              
 
           </div>
-          
+           
         ))} */}
 
         <div className="flex flex-wrap gap-2 px-4 mt-4 ">
 
-          {startloading ? (
-          <Loader /> )  : (
-
+          {
             buttons.map((items) => (
               <div key={items.id}>
                 <button
@@ -99,7 +121,9 @@ const TopCategoriesDetail = () => {
                   {items.name}
                 </button>
               </div>
-            ))) }
+            )) }
+
+            
 
           
 
@@ -134,7 +158,10 @@ const TopCategoriesDetail = () => {
 
        <div className="px-4 flex flex-wrap justify-between py-4  gap-2 ">
 
-        { topCategoryDetailData?.rows?.length === 0 ? (
+        { startloading ? (
+          <Loader />
+        ) : (
+          topCategoryDetailData?.rows?.length === 0 ? (
             <p className="text-gray-200 text-2xl py-4 ">No Data Found !!</p>
         ) : 
          (
@@ -202,8 +229,10 @@ const TopCategoriesDetail = () => {
             </div>
           ))
 
-        )}
+        ))}
          
+
+        
         
 
       </div>

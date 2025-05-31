@@ -22,10 +22,18 @@ const Home = () => {
   const navigate = useNavigate();
 
   useEffect(() => {
+    dispatch(GetBannerImage())
     dispatch(GetAllCategories());
     dispatch(GetAllGames());
-    dispatch(GetBannerImage())
   }, [dispatch]);
+
+   useEffect(() => {
+    const isLoggedIn = localStorage.getItem("token"); 
+
+    if (isLoggedIn) {
+      navigate("/home", { replace: true }); 
+    }
+  }, []);
 
   // Destruture-
   const { data: categories, loading: categoryLoading } = useSelector(
@@ -40,7 +48,7 @@ const Home = () => {
   function showFnc(id) {
     console.log("Hello Inida");
     console.log("Id :", id);
-    navigate(`/game/${id}`);
+    navigate(`/game/${id}`); 
   }
 
   // const categories = useSelector((state) => state.categories.data);
@@ -54,7 +62,7 @@ const Home = () => {
     console.log("hello Category World");
     console.log("Our Id :", id);
     
-    navigate(`/top-category/${id}`);
+    navigate(`/top-category/${id}`); 
   }
 
   function profile(){
@@ -91,6 +99,7 @@ const Home = () => {
             type="text"
             placeholder="Search"
             className="py-4 px-2 text-xl rounded-lg outline-none text-white placeholder-white"
+            onClick={()=> navigate("/search")}
           />
         </div>
 
@@ -108,7 +117,7 @@ const Home = () => {
       <Carousel />
 
       <div
-        className="min-h-screen pb-4 pt-12"
+        className=" pb-4 pt-12"
         style={{ backgroundColor: "#1F2128" }}
       >
         <div className="text-center w-full mx-auto">
@@ -138,6 +147,7 @@ const Home = () => {
               </ul>
             )}
           </div>
+          
         </div>
 
         <div>
@@ -159,7 +169,7 @@ const Home = () => {
                       src={data.image}
                       alt="logo"
                       className="w-20 mx-auto rounded-full h-20 border-4 border-green-500 "
-                      onClick={() => showFnc(data.id)}
+                      onClick={() => showFnc(data.id)} 
                     />
                     <h2 className="w-20 mx-auto text-xs text-gray-300 mt-1">
                       {data.name}

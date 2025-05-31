@@ -5,7 +5,9 @@ const initialState = {
     ProfileData: {},
     WalletData: {},
     ListingData: [],
+    faqData: [],
     loading: false,
+    ProfileUserData: {},
     error: null
 }
 
@@ -32,18 +34,34 @@ export const profileSlice = createSlice({
         },
 
         fetchWalletSuccess: (state, action)=> {
-            state.loading = false
+            state.loading = false;
             state.WalletData = action.payload
             
 
         },
 
         fetchListingSuccess : (state, action)=> {
-            state.loading = false,
+            state.loading = false;
             state.ListingData = action.payload
             // console.log(action.payload)
 
+        },
+
+        fetchFaqSuccess: (state, action)=>{
+            state.loading = false;
+            state.faqData = action.payload
+            console.log(action.payload)
+            
+        },
+
+        fetchProfileUser: (state, action) => {
+            state.loading = false;
+            state.ProfileUserData = action.payload;
+            console.log(action.payload)
+            
+
         }
+
 
 
         
@@ -52,6 +70,6 @@ export const profileSlice = createSlice({
 })
 
 
-export const {fetchProfileStart, fetchProfileSuccess, fetchWalletSuccess,  fetchProfileFailed, fetchListingSuccess} = profileSlice.actions
+export const {fetchProfileStart, fetchProfileSuccess, fetchWalletSuccess, fetchFaqSuccess,  fetchProfileFailed, fetchListingSuccess, fetchProfileUser} = profileSlice.actions
 
 export default profileSlice.reducer

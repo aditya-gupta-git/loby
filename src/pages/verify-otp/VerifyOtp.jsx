@@ -1,14 +1,29 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
 import { verifyotp } from "../../Data/api/authApi.js";
-import { loginFailure, loginStart, loginSuccess } from "../../Data/redux/slices/authSlice.js";
+import {
+  loginFailure,
+  loginStart,
+  loginSuccess,
+} from "../../Data/redux/slices/authSlice.js";
 import { images } from "../../constant/images";
+
+import { toast } from "react-toastify";
 
 const VerifyOtp = () => {
   const [otp, setOtp] = useState("");
   const navigate = useNavigate();
   const dispatch = useDispatch();
+
+  useEffect(()=> {
+    const token = localStorage.getItem("token")
+    const isloggedIn = localStorage.getItem("isAuthenticated")
+
+    if(token && isloggedIn) {
+      navigate("/home", {replace: true})
+    }
+  },[])
 
   const loading = useSelector((state) => state.auth.loading);
   const mobile = localStorage.getItem("mobile");
@@ -16,24 +31,28 @@ const VerifyOtp = () => {
   const handlerverifyOtp = async (e) => {
     e.preventDefault();
 
-    if (!otp) {
-      return alert("Invalid OTP");
+    if (otp === "") {
+      return toast.error("Please Enter OTP");
+    } else if (!otp) {
+      return toast.error("Invalid OTP");
     }
 
-    dispatch(loginStart()) 
+    dispatch(loginStart());
 
-   
     try {
-     
       const response = await verifyotp(otp, mobile);
       console.log(response);
-      localStorage.setItem("token", response.data.token);
-      dispatch(loginSuccess(response?.user));
+      localStorage.setItem("token", response.data.token); 
+      localStorage.setItem("user", JSON.stringify(response.data));
+      dispatch(loginSuccess(response.data));
       navigate("/home");
-    }
+      toast.success("Welcome to Game World");
+    } 
+    
      catch (error) {
-      console.log(error);
-      dispatch(loginFailure())
+      console.error(error); 
+      toast.error(error.message || "OTP verification failed"); 
+      dispatch(loginFailure());
     }
   };
 
@@ -47,7 +66,7 @@ const VerifyOtp = () => {
       }}
     >
       <div className="flex items-end h-screen w-full justify-center  ">
-        {loading && <p>loading...</p>}
+      
 
         <div
           className="w-full h-1/2 border-black  rounded-t-3xl text-center "
@@ -80,9 +99,7 @@ const VerifyOtp = () => {
             </button>
           </form>
         </div>
-
       </div>
-
     </div>
   );
 };

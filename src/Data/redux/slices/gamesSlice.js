@@ -22,7 +22,7 @@ export const gamesSlice = createSlice({
         fetchGamesSuccess: (state, action)=>{
             state.loading = false;
             state.gameData = action.payload
-            // console.log(action.payload)
+            // console.log(action.payload)  
 
         },
 

@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import {
   loginStart,
   loginSuccess,
@@ -8,6 +8,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { sendotp } from "../../Data/api/authApi.js";
 import { useNavigate } from "react-router-dom";
 import { images } from "../../constant/images";
+import { toast } from "react-toastify";
 
 const Login = () => {
   const [number, setNumber] = useState("");
@@ -15,18 +16,32 @@ const Login = () => {
 
   const navigate = useNavigate();
 
+
+    useEffect(()=> {
+
+      const token = localStorage.getItem("token") 
+      const isloggedIn = localStorage.getItem("isAuthenticated") 
+      console.log(isloggedIn);
+      console.log(token);
+      
+
+      if(token && isloggedIn) {
+        navigate("/home", {replace: true})
+      }
+    },[])
+
   const loading = useSelector((state) => state.auth.loading);
 
   //handlerSendOtp
   const handlesendotp = async (e) => {
-    e.preventDefault();
+    e.preventDefault();     
 
     if (!number) {
-      return alert("fill form first");
+      return toast.error("fill form first");
     }
 
     if (number.length < 10) {
-      return alert("please Enter valid number");
+      return toast.error("please Enter valid number");
     }
 
     dispatch(loginStart())

@@ -18,12 +18,18 @@ const Wallet = () => {
 
     const data =  useSelector(state=> state.profile.WalletData )
 
+    function hello (){
+      // alert("Hello India ")
+      console.log("World Hello")
+      navigate('/add-token')
+      
+      
+    }
 
   return (
     <div>
-       
-
         <div>
+
             <nav className='flex justify-between items-center px-6 pt-4 ' >
                 <div className="left-icon text-white p-2 text-2xl rounded-full  "
                   style={{ backgroundColor: "#33353B" }}
@@ -50,6 +56,7 @@ const Wallet = () => {
                         </div>
                         <button className=' rounded-lg px-8 py-2 mt-4 '
                         style={{backgroundColor: "#6C5DD3"}}
+                        onClick={hello}
                         >Add Token</button>
                     </div>
                 </div>

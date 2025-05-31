@@ -1,9 +1,12 @@
-import axiosInstance from "./axiosInstance";
+import axiosInstance from "./axiosInstance"
+
 
 export const sendotp = async (mobile) => {
     try {
       const response = await axiosInstance.post('/loginV2', {mobile}); 
+      // console.log(response.data) 
       return response.data
+      
     } catch (error) {
       throw new Error(error.response ? error.response.data.message : "Something went wrong");
     }
@@ -11,7 +14,7 @@ export const sendotp = async (mobile) => {
 
 
 // Verify Api
-export const verifyotp = async (otp, mobile)=>{
+export const verifyotp =  async (otp, mobile)=>{
     try {
         const response =  await axiosInstance.post('/verify-otp', {mobile, otp} )
         console.log(response.data)
@@ -19,7 +22,9 @@ export const verifyotp = async (otp, mobile)=>{
         
         
     } catch (error) {
-        console.error(error);
+      throw new Error(
+        error?.response?.data?.message || "OTP verification failed"
+      );
 
         
     }

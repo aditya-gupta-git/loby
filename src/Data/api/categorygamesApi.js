@@ -13,7 +13,7 @@ export const CategoryGames = (id) => async (dispatch) => {
 
   try {
     const response = await axiosInstance.get(
-      `get-all-game-service-listing-buyer?category_id=${id}`
+      `get-all-game-service-listing-buyer?category_id=${id}` 
     );
     console.log("API Response :", response.data.data.rows);
     dispatch(fetchcategoryGamesDataSuccess(response.data.data.rows));
